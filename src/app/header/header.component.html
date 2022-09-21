@@ -1,0 +1,45 @@
+<nav class=" navbar navbar-expand-lg  navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link " href="#">Home <span class="sr-only"></span> </a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active" >
+          <a class="nav-link " routerLink="/directivas"  href="#">Directivas</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" >
+          <a class="nav-link " routerLink="/clientes"  href="#">Clientes</a>
+        </li>
+
+      </ul>
+
+
+    </div>
+
+    <ul class="navbar-nav navbar-right" >
+      <li *ngIf="!aut.isAuthenticated()" ><a  routerLink="/login" class="btn btn-btn-outline-primary">Sign In</a></li>
+
+      <li *ngIf="aut.isAuthenticated()" class="dropdown">
+        <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+        {{aut.usuario.username}}
+        </a>
+
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+              <button (click)="logout()" class="dropdown-item" type="submit"  >Salir</button>
+            </div>
+
+      </li>
+
+
+    </ul>
+  </div>
+</nav>
